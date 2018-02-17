@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -9,30 +10,28 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<BorderPane cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="750.0" scaleShape="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="students_CRUD.RegisterController">
+<BorderPane cacheShape="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" scaleShape="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="students_CRUD.RegisterController">
    <left>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="317.0" prefWidth="139.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Register Students" />
-            <Label fx:id="firstNameLabel" />
-            <TextField fx:id="firstName" promptText="firstName" />
-            <Label fx:id="secondNameLabel" layoutX="10.0" layoutY="10.0" />
-            <TextField fx:id="secondName" layoutX="10.0" layoutY="27.0" promptText="Second Name" />
-            <Label fx:id="lastNameLabel" layoutX="10.0" layoutY="52.0" />
-            <TextField fx:id="lastName" layoutX="10.0" layoutY="69.0" promptText="Last Name" />
-            <Label fx:id="birthDayLabel" layoutX="10.0" layoutY="94.0" />
-            <TextField fx:id="birthDay" layoutX="10.0" layoutY="111.0" promptText="Birthday" />
-            <Label fx:id="groupNumberLabel" layoutX="10.0" layoutY="136.0" />
-            <TextField fx:id="groupNumber" layoutX="10.0" layoutY="153.0" promptText="Group Number" />
-            <Label fx:id="uniqIdLabel" layoutX="10.0" layoutY="178.0" />
-            <TextField fx:id="uniqId" layoutX="10.0" layoutY="195.0" promptText="Uniq id" />
-            <Label fx:id="isConnected" text="Status" />
-            <Button mnemonicParsing="false" onAction="#registerStudent" text="Register">
+            <Label fx:id="lastNameLabel" layoutX="10.0" layoutY="52.0" text="Last Name" />
+            <TextField fx:id="lastName" layoutX="10.0" layoutY="69.0" promptText="Иванов" />
+            <Label fx:id="firstNameLabel" text="FirstName" />
+            <TextField fx:id="firstName" promptText="Иван" />
+            <Label fx:id="secondNameLabel" layoutX="10.0" layoutY="10.0" text="Middle Name" />
+            <TextField fx:id="secondName" layoutX="10.0" layoutY="27.0" prefHeight="25.0" prefWidth="140.0" promptText="Иванович" />
+            <Label fx:id="birthDayLabel" layoutX="10.0" layoutY="94.0" text="Birthday" />
+            <TextField fx:id="birthDay" layoutX="10.0" layoutY="111.0" promptText="1990-12-24" />
+            <Label fx:id="groupNumberLabel" layoutX="10.0" layoutY="136.0" text="Group Number" />
+            <TextField fx:id="groupNumber" layoutX="10.0" layoutY="153.0" promptText="274" />
+            <Label fx:id="uniqIdLabel" layoutX="10.0" layoutY="178.0" text="Uniq id" />
+            <TextField fx:id="uniqId" layoutX="10.0" layoutY="195.0" promptText="123" />
+            <Button mnemonicParsing="false" onAction="#registerStudent" prefHeight="25.0" prefWidth="123.0" text="Add new Student">
                <opaqueInsets>
                   <Insets left="10.0" top="10.0" />
                </opaqueInsets>
                <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
                </VBox.margin>
             </Button>
          </children>
@@ -42,7 +41,7 @@
       </VBox>
    </left>
     <center>
-        <TableView fx:id="tableStudent" editable="true" layoutX="67.0" layoutY="84.0" prefHeight="400.0" prefWidth="376.0">
+        <TableView fx:id="tableStudent" editable="true" layoutX="67.0" layoutY="84.0" prefHeight="316.0" prefWidth="516.0">
             <columns>
                 <TableColumn fx:id="idColumn" prefWidth="40.0" text="id" />
                 <TableColumn fx:id="firstNameColumn" prefWidth="83.0" text="First Name" />
@@ -51,10 +50,13 @@
                 <TableColumn fx:id="birthdayColumn" prefWidth="76.0" text="Birthday" />
                 <TableColumn fx:id="groupNumberColumn" prefWidth="94.0" text="Group Number" />
             </columns>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
         </TableView>
     </center>
    <right>
-      <VBox prefHeight="400.0" prefWidth="169.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="316.0" prefWidth="172.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="removeLabel" prefHeight="17.0" prefWidth="161.0" text="Remove student by Uniq id">
                <VBox.margin>
@@ -65,7 +67,7 @@
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
                </VBox.margin></TextField>
-            <Button mnemonicParsing="false" onAction="#deleteStudent" prefHeight="25.0" prefWidth="70.0" text="Remove">
+            <Button mnemonicParsing="false" onAction="#deleteStudent" prefHeight="25.0" prefWidth="104.0" text="Remove Student">
                <VBox.margin>
                   <Insets left="20.0" top="10.0" />
                </VBox.margin>
@@ -74,10 +76,25 @@
       </VBox>
    </right>
    <bottom>
-      <Button mnemonicParsing="false" onAction="#loadDataFromDatabase" text="Load students table" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="20.0" right="410.0" top="20.0" />
-         </BorderPane.margin>
-      </Button>
+      <AnchorPane>
+         <children>
+            <Button layoutX="158.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadDataFromDatabase" text="Load students table" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="521.0" AnchorPane.topAnchor="10.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="20.0" right="410.0" top="20.0" />
+               </BorderPane.margin>
+            </Button>
+            <Label fx:id="isConnected" layoutY="27.0" text="Status" />
+         </children>
+      </AnchorPane>
    </bottom>
+   <top>
+      <Label text="Students table" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+      </Label>
+   </top>
 </BorderPane>
